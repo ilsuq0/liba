@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "liba/bb";
+
+package bb;
+
+message Snap {
+    int32 Cmd = 1;
+    int64 Id  = 2;
+    bytes Dta = 3;
+}
+
+service Bb {
+  rpc Chat(stream Snap) returns (stream Snap) {}
+}
